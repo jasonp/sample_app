@@ -9,4 +9,11 @@ module ApplicationHelper
 			"#{base_title} | #{@title}"
 		end
 	end
+	
+	# Create a logo link for the header partial
+	def logo
+		logo = image_tag("logo.png", :alt => "Sample App", :class => "round")
+	end
+	
+	
 end
