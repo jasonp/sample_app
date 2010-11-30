@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 	attr_accessor :password
 	attr_accessible :name, :email, :password, :password_confirmation
 	
-	#regular expression..not sure I understand this yet
+	#regular expression..not sure I understand yet, but it validates the mail addy
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	
 	#validate the user attributes
@@ -32,9 +32,7 @@ class User < ActiveRecord::Base
 	
 	# method returns true if the users pwd matches the submitted pwd
 	def has_password?(submitted_password)
-		# Compare encrypted_password with the encrypted
 		encrypted_password == encrypt(submitted_password)
-		# version of submitted_password
 	end
 	
 	def self.authenticate(email, submitted_password)
