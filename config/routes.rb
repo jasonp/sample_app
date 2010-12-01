@@ -1,6 +1,7 @@
 SampleApp::Application.routes.draw do
-  
- 	match '/signup', :to => 'users#new' 	
+
+
+ 	match '/signup', :to => 'users#new' 	 #not sure why this is here
 
 	match '/contact', :to => 'pages#contact'
 	match '/about', :to => 'pages#about'
@@ -12,8 +13,12 @@ SampleApp::Application.routes.draw do
 	#making the user/1/ URLs work...somehow
 	
 	resources :users
+	resources :sessions, :only => [:new, :create, :destroy]
 	
-	match '/signup', :to => 'users#new'
+	match '/signup', :to => 'users#new' 
+	
+	match '/signin', :to => 'sessions#new'
+	match '/signout', :to => 'sessions#destroy'
 
 	 	
   # The priority is based upon order of creation:
