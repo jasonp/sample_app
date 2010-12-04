@@ -129,7 +129,7 @@ describe User do
  	
  	describe "admin attribute" do
  		before(:each) do
- 			@user = User.create!@attr)
+ 			@user = User.create!(@attr)
  		end
  		
  		it "should respond to admin" do
@@ -143,7 +143,6 @@ describe User do
  		it "should be convertible to an admin" do
  			@user.toggle!(:admin)
  			@user.should be_admin
- 		end
- 	end
- 	
+		end
+	end
 end
